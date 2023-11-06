@@ -2,8 +2,18 @@
 Use these files to solve the following challenge:
 - [x] Create a new repo
 - [x] Add the exercise files
-- [ ] Add a workflow using content reccommended by GitHub Actions for publishing a container image to GitHub Packages.
-- [ ] Modify the workflow to include a workflow dispatch trigger.
-- [ ] Modify the workflow to add a job for testing the container.
-- [ ] Make sure the test job runs after the `build` job.
+- [x] Add a workflow using content reccommended by GitHub Actions for publishing a container image to GitHub Packages.
+- [x] Modify the workflow to include a workflow dispatch trigger.
+- [x] Modify the workflow to add a job for testing the container.
+- [x] Make sure the test job runs after the `build` job.
 - [ ] Add a step to the test job to run the published container and check the output for the word "container".
+
+
+  test:
+    needs: [build]
+    runs-on: ubuntu-latest
+    
+    steps:
+    - run: ghcr.io/ghaa_03_challenge_pub_use_container/image:main
+    - name: Runs tests
+      run: grep container
