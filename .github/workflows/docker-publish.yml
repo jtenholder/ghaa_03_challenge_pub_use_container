@@ -103,4 +103,4 @@ jobs:
     steps:
       - run: docker pull ghcr.io/jtenholder/ghaa_03_challenge_pub_use_container:main
       - name: Runs test
-        run: grep containter
+        run: grep containter simple.py
