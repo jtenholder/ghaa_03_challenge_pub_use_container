@@ -94,3 +94,13 @@ jobs:
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
+  
+  test:
+    needs: [build]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: docker pull ghcr.io/jtenholder/ghaa_03_challenge_pub_use_container:main
+      - name: Runs test
+        run: grep containter

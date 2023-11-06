@@ -8,12 +8,3 @@ Use these files to solve the following challenge:
 - [x] Make sure the test job runs after the `build` job.
 - [ ] Add a step to the test job to run the published container and check the output for the word "container".
 
-
-  test:
-    needs: [build]
-    runs-on: ubuntu-latest
-    
-    steps:
-    - run: ghcr.io/ghaa_03_challenge_pub_use_container/image:main
-    - name: Runs tests
-      run: grep container
